@@ -1,0 +1,35 @@
+
+
+
+function submit() {
+    var elm;
+    var errorList = [];
+
+    for (var i = 0; i < inputs.length; i++) {
+        elm = getE(inputs[i]);
+        if (elm.value === '') {
+            errorList.push(elm.placeholder + ' is required');
+            elm.classList.add(ERROR_CLASS);
+        } else {
+            elm.classList.remove(ERROR_CLASS);
+        }
+    }
+    var email = getE('emailAddress');
+    if (email.value.indexOf('@') == -1) {
+        errorList.push('Enter a valid Email');
+    }
+
+    var name = getE('firstName');
+    if (name.value === '') {
+        name.classList.add(ERROR_CLASS);
+        errorList.push('First Name is required');
+    } else {
+        name.classList.remove(ERROR_CLASS);
+    }
+
+    var find = getE('findUs');
+    if (find.checked === false) {
+
+        errorList.push('Please fill in');
+    }
+}
